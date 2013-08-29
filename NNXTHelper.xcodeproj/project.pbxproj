@@ -201,6 +201,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Morgan Harris";
 				TargetAttributes = {
+					0B75F84E17CED8A900CC8B32 = {
+						DevelopmentTeam = C5GXKE5GA9;
+					};
 					0B75F86F17CED8A900CC8B32 = {
 						TestTargetID = 0B75F84E17CED8A900CC8B32;
 					};
@@ -389,6 +392,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NNXTHelper/NNXTHelper-Prefix.pch";
 				INFOPLIST_FILE = "NNXTHelper/NNXTHelper-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -402,6 +406,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NNXTHelper/NNXTHelper-Prefix.pch";
 				INFOPLIST_FILE = "NNXTHelper/NNXTHelper-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -466,6 +471,7 @@
 				0B75F88217CED8AA00CC8B32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B75F88317CED8AA00CC8B32 /* Build configuration list for PBXNativeTarget "NNXTHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +480,7 @@
 				0B75F88517CED8AA00CC8B32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
