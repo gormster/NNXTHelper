@@ -7,26 +7,21 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NNXTHelperWindowController.h"
+#import "PitchBendHelperWindowController.h"
+#import "TimingHelperWindowController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 
-@property double beatsLong;
-@property double beatsLongMultiplier;
-@property double startPosition;
-@property double startPositionMultiplier;
-@property double endPosition;
-@property double endPositionMultiplier;
-@property NSUInteger framesLong;
+@property NNXTHelperWindowController* nnxtController;
+@property PitchBendHelperWindowController* pitchController;
+@property TimingHelperWindowController* timingController;
 
-@property (weak) IBOutlet NSTextField *sampleLengthBeatsBarsLabel;
+@property (nonatomic) BOOL alwaysOnTop;
 
-@property (weak) IBOutlet NSTextField *startPositionLabel;
-@property (weak) IBOutlet NSTextField *endPositionLabel;
-
-- (IBAction)changeSampleLengthMultiplier:(NSPopUpButton *)sender;
-- (IBAction)changeStartMultiplier:(NSPopUpButton *)sender;
-- (IBAction)changeEndMultiplier:(NSPopUpButton *)sender;
+- (IBAction)helperMenuClick:(NSMenuItem *)sender;
+- (IBAction)launchButtonClick:(NSButton *)sender;
 
 @end

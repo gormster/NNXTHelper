@@ -10,64 +10,62 @@
 
 @implementation AppDelegate
 
-static double multiplierValues[] = { 1/32., 1/16., 1/8., 1/4., 1/24., 1/12. };
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    //Initialise values
-    self.beatsLong = 4;
-    self.beatsLongMultiplier = 1/4.;
-    self.startPosition = 0;
-    self.startPositionMultiplier = 1/4.;
-    self.endPosition = 4;
-    self.endPositionMultiplier = 1/4.;
     
-    // Insert code here to initialize your application
-    NSArray* observedKeyPaths = @[@"beatsLong", @"beatsLongMultiplier", @"startPosition", @"startPositionMultiplier", @"endPosition", @"endPositionMultiplier", @"framesLong"];
-
-    for (NSString* i in observedKeyPaths) {
-        [self addObserver:self forKeyPath:i options:0 context:NULL];
-    }
-}
-
-- (IBAction)changeSampleLengthMultiplier:(NSPopUpButton *)sender {
-    self.beatsLongMultiplier = multiplierValues[ sender.indexOfSelectedItem ];
-}
-
-- (IBAction)changeStartMultiplier:(NSPopUpButton *)sender {
-    self.startPositionMultiplier = multiplierValues[ sender.indexOfSelectedItem ];
-}
-
-- (IBAction)changeEndMultiplier:(NSPopUpButton *)sender {
-    self.endPositionMultiplier = multiplierValues[ sender.indexOfSelectedItem ];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    [self updateStartEndPositionLabels];
-}
-
-- (void)setNilValueForKey:(NSString *)key
-{
-    [self setValue:@0 forKey:key];
-}
-
-- (void) updateStartEndPositionLabels {
-    double beatsLong = self.beatsLong * self.beatsLongMultiplier;
-    double startPos = self.startPosition * self.startPositionMultiplier;
-    double endPos = self.endPosition * self.endPositionMultiplier;
+    NSString* x = nil;
+    x = x ?: @"true";
+    NSLog(@"%@",x);
     
-    startPos /= beatsLong;
-    endPos /= beatsLong;
+    self.nnxtController = [[NNXTHelperWindowController alloc] initWithWindowNibName:@"NNXTHelper"];
     
-    if (self.framesLong) {
-        self.startPositionLabel.stringValue = [NSString stringWithFormat:@"%1.2f%% / %1.0f samples", startPos * 100, startPos * self.framesLong];
-        self.endPositionLabel.stringValue = [NSString stringWithFormat:@"%1.2f%% / %1.0f samples", endPos * 100, endPos * self.framesLong];
+    self.pitchController = [[PitchBendHelperWindowController alloc] initWithWindowNibName:@"PitchBendHelper"];
+    
+    self.timingController = [[TimingHelperWindowController alloc] initWithWindowNibName:@"TimingHelper"];
+}
+
+- (IBAction)helperMenuClick:(NSMenuItem *)sender {
+    
+    static NSArray* helpers;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        helpers = @[self.nnxtController, self.pitchController, self.timingController];
+    });
+    NSWindowController* helper = helpers[sender.tag];
+    
+    if (helper.window.isMainWindow) {
+        [helper close];
+        sender.state = NSOffState;
     } else {
-        self.startPositionLabel.stringValue = [NSString stringWithFormat:@"%1.2f%%", startPos * 100];
-        self.endPositionLabel.stringValue = [NSString stringWithFormat:@"%1.2f%%", endPos * 100];
+        [helper showWindow:self];
+        sender.state = NSOnState;
     }
 }
 
+- (IBAction)launchButtonClick:(NSButton *)sender {
+    static NSArray* helpers;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        helpers = @[self.nnxtController, self.pitchController, self.timingController];
+    });
+    NSWindowController* helper = helpers[sender.tag];
+    
+    [helper showWindow:self];
+}
 
+- (void)setAlwaysOnTop:(BOOL)alwaysOnTop
+{
+    _alwaysOnTop = alwaysOnTop;
+    
+    if (_alwaysOnTop) {
+        self.nnxtController.window.level = NSFloatingWindowLevel;
+        self.pitchController.window.level = NSFloatingWindowLevel;
+        self.timingController.window.level = NSFloatingWindowLevel;
+    } else {
+        self.nnxtController.window.level = NSNormalWindowLevel;
+        self.pitchController.window.level = NSNormalWindowLevel;
+        self.timingController.window.level = NSNormalWindowLevel;
+    }
+    
+}
 @end

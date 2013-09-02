@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0B75F84E17CED8A900CC8B32"
                BuildableName = "NNXTHelper.app"
-               BlueprintName = "NNXTHelper"
-               ReferencedContainer = "container:NNXTHelper.xcodeproj">
+               BlueprintName = "ReasonHelper"
+               ReferencedContainer = "container:ReasonHelper.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0B75F86F17CED8A900CC8B32"
                BuildableName = "NNXTHelperTests.xctest"
-               BlueprintName = "NNXTHelperTests"
-               ReferencedContainer = "container:NNXTHelper.xcodeproj">
+               BlueprintName = "ReasonHelperTests"
+               ReferencedContainer = "container:ReasonHelper.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0B75F84E17CED8A900CC8B32"
             BuildableName = "NNXTHelper.app"
-            BlueprintName = "NNXTHelper"
-            ReferencedContainer = "container:NNXTHelper.xcodeproj">
+            BlueprintName = "ReasonHelper"
+            ReferencedContainer = "container:ReasonHelper.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0B75F84E17CED8A900CC8B32"
             BuildableName = "NNXTHelper.app"
-            BlueprintName = "NNXTHelper"
-            ReferencedContainer = "container:NNXTHelper.xcodeproj">
+            BlueprintName = "ReasonHelper"
+            ReferencedContainer = "container:ReasonHelper.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0B75F84E17CED8A900CC8B32"
             BuildableName = "NNXTHelper.app"
-            BlueprintName = "NNXTHelper"
-            ReferencedContainer = "container:NNXTHelper.xcodeproj">
+            BlueprintName = "ReasonHelper"
+            ReferencedContainer = "container:ReasonHelper.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
