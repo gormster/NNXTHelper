@@ -74,8 +74,8 @@ static double multiplierValues[] = { 1/32., 1/16., 1/8., 1/4., 1/24., 1/12. };
     endPos /= beatsLong;
     
     if (self.framesLong) {
-        self.startPositionLabel.stringValue = [NSString stringWithFormat:@"%1.2f%% / %1.0f samples", startPos * 100, startPos * self.framesLong];
-        self.endPositionLabel.stringValue = [NSString stringWithFormat:@"%1.2f%% / %1.0f samples", endPos * 100, endPos * self.framesLong];
+        self.startPositionLabel.stringValue = [NSString stringWithFormat:@"%1.2f%% / %1.0f frames", startPos * 100, startPos * self.framesLong];
+        self.endPositionLabel.stringValue = [NSString stringWithFormat:@"%1.2f%% / %1.0f frames", endPos * 100, endPos * self.framesLong];
     } else {
         self.startPositionLabel.stringValue = [NSString stringWithFormat:@"%1.2f%%", startPos * 100];
         self.endPositionLabel.stringValue = [NSString stringWithFormat:@"%1.2f%%", endPos * 100];

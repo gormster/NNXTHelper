@@ -12,11 +12,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    
-    NSString* x = nil;
-    x = x ?: @"true";
-    NSLog(@"%@",x);
-    
     self.nnxtController = [[NNXTHelperWindowController alloc] initWithWindowNibName:@"NNXTHelper"];
     
     self.pitchController = [[PitchBendHelperWindowController alloc] initWithWindowNibName:@"PitchBendHelper"];
